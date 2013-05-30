@@ -1,0 +1,6 @@
+*.ncb
+*.swp
+*.suo
+*.user
+project/win32/GfxPlane/Debug
+project/win32/debug
