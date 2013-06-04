@@ -3,8 +3,8 @@
 
 #include <stdint.h>
 #include <stddef.h>
-
-typedef uint8_t plot_bool;
+#include <stdlib.h>
+typedef uint8_t plt_bool;
 
 #ifndef FALSE
 # define FALSE 0
@@ -13,5 +13,18 @@ typedef uint8_t plot_bool;
 #ifndef TRUE
 # define TRUE 1
 #endif
+
+typedef  struct plt_state {
+  struct mrb_state * mrb;
+  struct RClass *plotter_module;
+  struct RClass *vector2_class;
+  struct RClass *vector3_class;
+  struct RClass *plane_class;
+  struct RClass *matrix3_class;
+  struct RClass *matrix4_class;
+}plt_state;
+
+plt_state * plt_open(void);
+void plt_close(plt_state *);
 
 #endif

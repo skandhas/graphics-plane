@@ -12,7 +12,7 @@ struct glview {
   int  height;
 };
 
-static plot_bool 
+static plt_bool 
 init_gl(glview * view)
 {
   int pixel_format;
@@ -83,7 +83,7 @@ win_proc(HWND wnd, UINT message, WPARAM wparam, LPARAM lparam)
   return 0;
 }
 
-static plot_bool
+static plt_bool
 create(glview * view)
 {
 #define PLOTTER_WINDOW_CLASS_NAME  L"Plotter Window"

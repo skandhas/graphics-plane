@@ -189,7 +189,31 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\..\src\mrb_plt.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\mrb_plt_matrix.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\mrb_plt_plane.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\mrb_plt_ray.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\mrb_plt_vector.c"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\src\mrbgems_init.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\src\plt_state.c"
 				>
 			</File>
 			<File
