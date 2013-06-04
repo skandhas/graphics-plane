@@ -31,10 +31,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     is used. Returns pBox.
 */
 kmAABB* kmAABBInitialize(kmAABB* pBox, const kmVec3* centre, const kmScalar width, const kmScalar height, const kmScalar depth) {
+    kmVec3 origin, *point;  
+
     if(!pBox) return 0;
-    
-    kmVec3 origin;
-    kmVec3* point = centre ? (kmVec3*) centre : &origin;
+    point = centre ? (kmVec3*) centre : &origin;
     kmVec3Zero(&origin);
     
     pBox->min.x = point->x - (width / 2);
@@ -79,6 +79,7 @@ kmAABB* kmAABBAssign(kmAABB* pOut, const kmAABB* pIn)
 kmAABB* kmAABBScale(kmAABB* pOut, const kmAABB* pIn, kmScalar s)
 {
 	assert(0 && "Not implemented");
+  return 0;
 }
 
 kmBool kmAABBIntersectsTriangle(kmAABB* box, const kmVec3* p1, const kmVec3* p2, const kmVec3* p3) {
@@ -90,7 +91,8 @@ kmEnum kmAABBContainsAABB(const kmAABB* container, const kmAABB* to_check) {
     kmVec3 corners[8];
     kmEnum result = KM_CONTAINS_ALL;
     kmBool found = KM_FALSE;
-        
+    kmUchar i;
+
     kmVec3Fill(&corners[0], to_check->min.x, to_check->min.y, to_check->min.z);
     kmVec3Fill(&corners[1], to_check->max.x, to_check->min.y, to_check->min.z);
     kmVec3Fill(&corners[2], to_check->max.x, to_check->max.y, to_check->min.z);
@@ -100,7 +102,7 @@ kmEnum kmAABBContainsAABB(const kmAABB* container, const kmAABB* to_check) {
     kmVec3Fill(&corners[6], to_check->max.x, to_check->max.y, to_check->max.z);
     kmVec3Fill(&corners[7], to_check->min.x, to_check->max.y, to_check->max.z);
         
-    for(kmUchar i = 0; i < 8; ++i) {
+    for(i = 0; i < 8; ++i) {
         if(!kmAABBContainsPoint(container, &corners[i])) {
             result = KM_CONTAINS_PARTIAL;
             if(found) {

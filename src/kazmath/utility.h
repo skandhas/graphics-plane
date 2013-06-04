@@ -28,6 +28,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <math.h>
 
+#define USE_DOUBLE_PRECISION
+
+#ifndef NULL
+#define NULL (0)
+#endif
+
 #ifndef kmScalar
 #ifdef USE_DOUBLE_PRECISION
 #define kmScalar double
@@ -82,8 +88,8 @@ extern kmScalar kmSQR(kmScalar s);
 extern kmScalar kmDegreesToRadians(kmScalar degrees);
 extern kmScalar kmRadiansToDegrees(kmScalar radians);
 
-extern kmScalar min(kmScalar lhs, kmScalar rhs);
-extern kmScalar max(kmScalar lhs, kmScalar rhs);
+extern kmScalar kmMin(kmScalar lhs, kmScalar rhs);
+extern kmScalar kmMax(kmScalar lhs, kmScalar rhs);
 extern kmBool kmAlmostEqual(kmScalar lhs, kmScalar rhs);
 
 extern kmScalar kmClamp(kmScalar x, kmScalar min, kmScalar max);

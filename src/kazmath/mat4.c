@@ -445,13 +445,12 @@ kmMat4* kmMat4RotationZ(kmMat4* pOut, const kmScalar radians)
 kmMat4* kmMat4RotationYawPitchRoll(kmMat4* pOut, const kmScalar pitch, const kmScalar yaw, const kmScalar roll)
 {
 
-    kmMat4 yaw_matrix;
-    kmMat4RotationY(&yaw_matrix, yaw);
-
+    kmMat4 yaw_matrix; 
     kmMat4 pitch_matrix;
-    kmMat4RotationX(&pitch_matrix, pitch);
-
     kmMat4 roll_matrix;
+
+    kmMat4RotationY(&yaw_matrix, yaw);
+    kmMat4RotationX(&pitch_matrix, pitch);
     kmMat4RotationZ(&roll_matrix, roll);
 
     kmMat4Multiply(pOut, &pitch_matrix, &roll_matrix);
@@ -502,7 +501,7 @@ kmMat4* kmMat4RotationQuaternion(kmMat4* pOut, const kmQuaternion* pQ)
 
 /** Builds a scaling matrix */
 kmMat4* kmMat4Scaling(kmMat4* pOut, const kmScalar x, const kmScalar y,
-                      kmScalar z)
+                      const kmScalar z)
 {
 	memset(pOut->mat, 0, sizeof(kmScalar) * 16);
 	pOut->mat[0] = x;
@@ -518,7 +517,7 @@ kmMat4* kmMat4Scaling(kmMat4* pOut, const kmScalar x, const kmScalar y,
  * will be set to zero except for the diagonal which is set to 1.0
  */
 kmMat4* kmMat4Translation(kmMat4* pOut, const kmScalar x,
-                          kmScalar y, const kmScalar z)
+                          const kmScalar y, const kmScalar z)
 {
     //FIXME: Write a test for this
     memset(pOut->mat, 0, sizeof(kmScalar) * 16);

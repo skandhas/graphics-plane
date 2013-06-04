@@ -80,12 +80,14 @@ kmVec4* kmVec4Lerp(kmVec4* pOut, const kmVec4* pV1, const kmVec4* pV2, kmScalar 
 
 /// Normalizes a 4D vector. The result is stored in pOut. pOut is returned
 kmVec4* kmVec4Normalize(kmVec4* pOut, const kmVec4* pIn) {
-    if (!pIn->x && !pIn->y && !pIn->z && !pIn->w)
+  kmScalar l ;
+  kmVec4 v;
+
+  if (!pIn->x && !pIn->y && !pIn->z && !pIn->w)
         return kmVec4Assign(pOut, pIn);
 
-	kmScalar l = 1.0f / kmVec4Length(pIn);
+	l = 1.0f / kmVec4Length(pIn);
 
-	kmVec4 v;
 	v.x = pIn->x * l;
 	v.y = pIn->y * l;
 	v.z = pIn->z * l;

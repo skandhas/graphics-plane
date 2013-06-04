@@ -476,6 +476,66 @@
 					</File>
 				</Filter>
 			</Filter>
+			<Filter
+				Name="kazmath"
+				>
+				<File
+					RelativePath="..\..\..\src\kazmath\aabb.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\kazmath\mat3.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\kazmath\mat4.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\kazmath\plane.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\kazmath\quaternion.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\kazmath\ray2.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\kazmath\ray3.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\kazmath\utility.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\kazmath\vec2.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\kazmath\vec3.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\kazmath\vec4.c"
+					>
+				</File>
+				<Filter
+					Name="GL"
+					>
+					<File
+						RelativePath="..\..\..\src\kazmath\GL\mat4stack.c"
+						>
+					</File>
+					<File
+						RelativePath="..\..\..\src\kazmath\GL\matrix.c"
+						>
+					</File>
+				</Filter>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Í·ÎÄ¼þ"
