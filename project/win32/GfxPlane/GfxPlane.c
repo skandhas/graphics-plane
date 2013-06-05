@@ -2,6 +2,8 @@
 #include <plotter.h>
 #include "GfxPlane.h"
 #include "plotter/glview.h"
+#include "plotter/director.h"
+#include "glcontroller.h"
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -11,21 +13,21 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 	MSG msg;
   HACCEL acctbl;
-  LARGE_INTEGER freq;
-  LARGE_INTEGER last;
-  LARGE_INTEGER now;
-  LARGE_INTEGER interval;
+  LARGE_INTEGER freq, last, now, interval;
   glview * view;
+  plt_director * director;
+  glcontroller * controller;
 
-  plt_open();
   acctbl = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_GFXPLANE));
   QueryPerformanceFrequency(&freq);
   QueryPerformanceCounter(&last);
   interval.QuadPart = (LONGLONG)(1.0/60 * freq.QuadPart);
 
-  view = glview_open(800, 400);
+  plt_open();
+  view       = glview_open(800, 480); 
+  director   = plt_director_open();
+  controller = glcontroller_open(director, view);
   glview_show(view);
-
 
   while (1)
   {
@@ -36,10 +38,11 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
       if (now.QuadPart - last.QuadPart > interval.QuadPart)
       {
         last.QuadPart = now.QuadPart;
+        controller->actions->draw(controller);
       }
       else
       {
-        Sleep(0);
+         Sleep(1);
       }
       continue;
     }

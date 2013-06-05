@@ -1,8 +1,9 @@
 #include <windows.h>
-#include "plotter.h"
-#include "plotter/glview.h"
 #include "gl/glew.h"
 #include "gl/wglew.h"
+#include "plotter.h"
+#include "plotter/glview.h"
+#include "win_proc.h"
 
 struct glview {
   HWND wnd;
@@ -10,6 +11,7 @@ struct glview {
   HGLRC rc; 
   int  width;
   int  height;
+  void * target;
 };
 
 static plt_bool 
@@ -62,28 +64,6 @@ release_gl(glview * view)
   }
 }
 
-static LRESULT CALLBACK
-win_proc(HWND wnd, UINT message, WPARAM wparam, LPARAM lparam)
-{
-  glview *view = (glview *)GetWindowLongPtr(wnd, GWLP_USERDATA);
-  switch (message) {
-    case WM_PAINT:
-      {
-        PAINTSTRUCT ps;
-        BeginPaint(wnd, &ps);
-        EndPaint(wnd, &ps);
-      }
-      break;
-    case WM_DESTROY:
-      PostQuitMessage(0);
-      break;
-
-    default:
-      return DefWindowProc(wnd, message, wparam, lparam);
-  }
-  return 0;
-}
-
 static plt_bool
 create(glview * view)
 {
@@ -92,7 +72,7 @@ create(glview * view)
   WNDCLASS  wc;
 
   wc.style          = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
-  wc.lpfnWndProc    = win_proc;
+  wc.lpfnWndProc    = glview_win_proc;
   wc.cbClsExtra     = 0;
   wc.cbWndExtra     = 0;
   wc.hInstance      = instance;
@@ -122,7 +102,7 @@ create(glview * view)
     return FALSE;
   }
 
-  SetWindowLongPtr(view->wnd, GWLP_USERDATA, view);
+  SetWindowLongPtr(view->wnd, GWLP_USERDATA, view->target);
 
   if(!init_gl(view)) {
     release_gl(view);
@@ -134,7 +114,7 @@ create(glview * view)
 glview *
 glview_open(int width, int height)
 {
-  glview * view = malloc(sizeof(glview));
+  glview * view = calloc(1, sizeof(glview));
   memset(view, 0, sizeof(glview));
 
   view->width = width;
@@ -146,6 +126,30 @@ glview_open(int width, int height)
 void
 glview_show(glview * view){
    ShowWindow(view->wnd, SW_SHOW);
+}
+
+int
+glview_width(glview * view)
+{
+  return view->width;
+}
+
+int
+glview_height(glview * view)
+{
+  return view->height;
+}
+
+void *
+glview_target(glview *view)
+{
+  return view->target;
+}
+
+void 
+glview_set_target(glview *view, void *target)
+{
+  view->target = target;
 }
 
 void
