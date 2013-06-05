@@ -494,10 +494,6 @@
 						RelativePath="..\..\..\src\platform\win32\glview.c"
 						>
 					</File>
-					<File
-						RelativePath="..\..\..\src\platform\win32\glview.h"
-						>
-					</File>
 				</Filter>
 			</Filter>
 			<Filter

@@ -1,6 +1,7 @@
 #include "stdafx.h"
+#include <plotter.h>
 #include "GfxPlane.h"
-#include "../../../src/platform/win32/glview.h"
+#include "plotter/glview.h"
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -16,6 +17,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
   LARGE_INTEGER interval;
   glview * view;
 
+  plt_open();
   acctbl = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_GFXPLANE));
   QueryPerformanceFrequency(&freq);
   QueryPerformanceCounter(&last);

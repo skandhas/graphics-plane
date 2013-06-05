@@ -1,6 +1,6 @@
 #include <windows.h>
 #include "plotter.h"
-#include "glview.h"
+#include "plotter/glview.h"
 #include "gl/glew.h"
 #include "gl/wglew.h"
 
@@ -65,6 +65,7 @@ release_gl(glview * view)
 static LRESULT CALLBACK
 win_proc(HWND wnd, UINT message, WPARAM wparam, LPARAM lparam)
 {
+  glview *view = (glview *)GetWindowLongPtr(wnd, GWLP_USERDATA);
   switch (message) {
     case WM_PAINT:
       {
@@ -117,9 +118,11 @@ create(glview * view)
                               instance,
                               NULL );
 
-  if (view->wnd) {
+  if (view->wnd == NULL) {
     return FALSE;
   }
+
+  SetWindowLongPtr(view->wnd, GWLP_USERDATA, view);
 
   if(!init_gl(view)) {
     release_gl(view);
@@ -161,5 +164,4 @@ glview_close(glview * view)
     free(view);
   }
 }
-
 
