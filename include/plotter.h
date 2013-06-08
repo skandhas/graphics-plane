@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <assert.h>
+
 typedef uint8_t plt_bool;
 
 #ifndef FALSE

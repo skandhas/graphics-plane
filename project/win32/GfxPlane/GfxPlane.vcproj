@@ -568,6 +568,14 @@
 					</File>
 				</Filter>
 			</Filter>
+			<Filter
+				Name="gfx"
+				>
+				<File
+					RelativePath="..\..\..\src\gfx\gl_program.c"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Í·ÎÄ¼þ"
