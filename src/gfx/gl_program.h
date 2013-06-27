@@ -1,8 +1,7 @@
 #ifndef GFX_PROGRAM_H
 #define GFX_PROGRAM_H
 
-#include "gl/glew.h"
-#include "gl/wglew.h"
+#include "plotter/gl.h"
 
 typedef struct gl_program_t {
   GLuint v_shader;

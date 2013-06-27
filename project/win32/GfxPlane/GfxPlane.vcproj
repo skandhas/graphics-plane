@@ -575,6 +575,38 @@
 					RelativePath="..\..\..\src\gfx\gl_program.c"
 					>
 				</File>
+				<File
+					RelativePath="..\..\..\src\gfx\gl_texture.c"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="sk"
+				>
+				<File
+					RelativePath="..\..\..\src\sk\sk_action.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\sk\sk_effect_node.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\sk\sk_node.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\sk\sk_scene.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\sk\sk_sprite_node.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\..\src\sk\sk_texture.c"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter

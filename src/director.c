@@ -112,7 +112,9 @@ plt_director_draw(plt_director * director)
 void
 plt_director_close(plt_director * director)
 {
-
+  if (director) {
+    free(director);
+  }
 }
 
 

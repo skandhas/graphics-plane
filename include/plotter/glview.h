@@ -1,5 +1,5 @@
-#ifndef GLVIEW_H
-#define GLVIEW_H
+#ifndef PLT_GLVIEW_H
+#define PLT_GLVIEW_H
 
 typedef struct  glview glview;
 

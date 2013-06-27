@@ -1,7 +1,6 @@
 #include <windows.h>
-#include "gl/glew.h"
-#include "gl/wglew.h"
 #include "plotter.h"
+#include "plotter/gl.h"
 #include "plotter/glview.h"
 #include "win_proc.h"
 
