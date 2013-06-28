@@ -588,6 +588,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\..\src\sk\sk_alloc.c"
+					>
+				</File>
+				<File
 					RelativePath="..\..\..\src\sk\sk_effect_node.c"
 					>
 				</File>

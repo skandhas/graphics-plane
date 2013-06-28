@@ -4,9 +4,14 @@
 #include "sk_sprite_node.h"
 #include "plotter/gl.h"
 
+
 void
 sk_sprite_node_draw(sk_sprite_node *sprite)
 {
+  assert(sprite);
+
+  glActiveTexture(GL_TEXTURE0);
+  glBindTexture(GL_TEXTURE_2D, sprite->tex->id);
   
 
 }

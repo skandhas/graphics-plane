@@ -3,7 +3,7 @@
 
 typedef struct sk_sprite_node {
   sk_node *node;
-  sk_texture * texture; 
+  sk_texture * tex; 
   sk_point anchor;
   sk_rect center;
   SKBlendMode blend;

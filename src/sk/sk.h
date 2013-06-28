@@ -5,6 +5,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <assert.h>
+#include "plotter/gl.h"
 
 typedef uint8_t sk_byte;
 typedef uint8_t sk_bool;

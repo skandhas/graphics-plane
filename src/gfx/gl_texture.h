@@ -5,6 +5,8 @@
 
 typedef struct gl_texture_t {
   GLuint id;  
+  GLfloat width;
+  GLfloat height;
 }gl_texture_t;
 
 gl_texture_t * gl_texture_open(GLenum);
