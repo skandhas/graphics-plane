@@ -8,7 +8,7 @@ sk_alloc(size_t size)
   return calloc(1, size);
 }
 
-void *
+void
 sk_free(void *ptr)
 {
   assert(ptr);

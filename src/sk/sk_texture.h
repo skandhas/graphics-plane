@@ -5,7 +5,7 @@ typedef struct sk_texture{
   SKTextureFilteringMode filtering_mode;
   sk_size size;
   sk_rect rect;
-  GLfloat id;
+  GLuint id;
 } sk_texture;
 
 sk_texture * sk_texture_create(void *data, sk_size size);
